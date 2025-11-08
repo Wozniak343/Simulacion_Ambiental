@@ -1,11 +1,15 @@
 import logging as log
+import os
+
+# Configurar la ruta del log en data/
+log_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data', 'capa_datos.log')
 
 log.basicConfig(
     level=log.DEBUG,
     format='%(asctime)s: %(levelname)s [%(filename)s:%(lineno)s] %(message)s',
     datefmt='%I:%M:%S %p',
     handlers=[
-        log.FileHandler('capa_datos.log', encoding='utf-8'),
+        log.FileHandler(log_path, encoding='utf-8'),
         log.StreamHandler()
     ]
 )

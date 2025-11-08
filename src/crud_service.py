@@ -1,9 +1,9 @@
 from typing import Optional, Dict, List
-from models import Project, Impacto
-import store
-import simulation
-import logger_base as _log
-from constants import (
+from src.models import Project, Impacto
+from src import store
+from src import simulation
+import src.logger_base as _log
+from src.constants import (
     TIPOS_PROYECTO, INTENSIDAD_MIN, INTENSIDAD_MAX, AREA_MIN, DURACION_MIN,
     MSG_ERROR_TIPO_INVALIDO, MSG_ERROR_INTENSIDAD, MSG_ERROR_AREA,
     MSG_ERROR_DURACION, MSG_ERROR_ID_VACIO, MSG_ERROR_NOMBRE_VACIO

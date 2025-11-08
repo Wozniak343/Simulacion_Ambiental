@@ -1,4 +1,0 @@
-id,nombre,tipo,area_ha,duracion_meses,ubicacion,intensidad
-1,Construcción Casa,construccion,5.0,6,Bogotá,5
-2,Planteación Cebollas,agricultura,3.0,6,La Calera,6
-3,Construcción Edificio,construccion,1.0,4,N/a,6

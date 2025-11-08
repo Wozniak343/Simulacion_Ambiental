@@ -1,68 +1,111 @@
-# Simulador de Impacto Ambiental
+# Simulador de Impacto Ambiental con IA
 
-Sistema de gestión y simulación de proyectos para evaluar su impacto ambiental en construcción, minería y agricultura.
+Sistema avanzado de gestión y simulación de proyectos para evaluar su impacto ambiental usando **Inteligencia Artificial** con Google Gemini.
 
 ## Descripción
 
-Este proyecto permite crear, gestionar y simular el impacto ambiental de diferentes tipos de proyectos. El simulador calcula métricas como calidad del aire, agua, biodiversidad y uso del suelo, proporcionando un análisis de riesgo y recomendaciones de mitigación.
+Sistema profesional que permite crear, gestionar y simular el impacto ambiental de proyectos de construcción, minería y agricultura. Utiliza **Google Gemini AI** para calcular métricas ambientales contextualizadas y generar recomendaciones técnicas detalladas.
 
-## Características
+## Características Principales
 
-- **Gestión completa de proyectos** (CRUD)
-- **Simulación de impacto ambiental** con métricas detalladas
-- **Interfaz gráfica (GUI)** moderna con Tkinter
-- **Interfaz de línea de comandos (CLI)** para usuarios avanzados
-- **Persistencia de datos** en formato CSV
-- **Visualización de resultados** con gráficos de barras
-- **Sistema de logging** para trazabilidad
-- **Diseño oscuro/claro** adaptable
+- **Cálculo con IA**: Métricas ambientales generadas por Google Gemini
+- **Recomendaciones Inteligentes**: Sugerencias técnicas detalladas con normativas
+- **Sistema de Fallback**: Garantiza funcionamiento sin conexión a internet
+- **Gestión CRUD Completa**: Crear, leer, actualizar y eliminar proyectos
+- **Doble Interfaz**: GUI moderna (Tkinter) y CLI para usuarios avanzados
+- **Persistencia**: Almacenamiento en CSV con manejo robusto de errores
+- **Logging Completo**: Trazabilidad de todas las operaciones
+- **Validaciones Exhaustivas**: Datos consistentes y confiables
 
-## Tipos de Proyectos Soportados
+## Tipos de Proyectos
 
-1. **Construcción** - Obras civiles y edificaciones
-2. **Minería** - Explotación de recursos minerales
-3. **Agricultura** - Proyectos agrícolas y cultivos
+1. **Construcción** - Obras civiles, edificaciones, infraestructura
+2. **Minería** - Explotación de recursos minerales, canteras
+3. **Agricultura** - Proyectos agrícolas, cultivos, ganadería
 
 ## Estructura del Proyecto
 
 ```
 Ambiental/
-├── app.py              # Aplicación GUI principal con Tkinter
-├── cli.py              # Interfaz de línea de comandos
-├── models.py           # Modelos de datos (Project, Impacto)
-├── crud_service.py     # Lógica de negocio y operaciones CRUD
-├── simulation.py       # Motor de simulación de impacto ambiental
-├── store.py            # Capa de persistencia (CSV)
-├── logger_base.py      # Configuración del sistema de logging
-├── constants.py        # Constantes y configuración global
-├── proyectos.csv       # Base de datos de proyectos
-├── README.md           # Documentación principal
-├── MEJORAS.md          # Registro de mejoras realizadas
-├── EJEMPLOS.md         # Ejemplos de uso y casos reales
-├── .gitignore          # Archivos ignorados por Git
-└── __pycache__/        # Archivos Python compilados
+├── src/                          # Código fuente principal
+│   ├── __init__.py              # Inicialización del paquete
+│   ├── models.py                # Modelos de datos (Project, Impacto)
+│   ├── constants.py             # Constantes y configuración
+│   ├── logger_base.py           # Sistema de logging
+│   ├── store.py                 # Capa de persistencia (CSV)
+│   ├── crud_service.py          # Lógica de negocio y CRUD
+│   ├── simulation.py            # Motor de simulación ambiental
+│   └── gemini_service.py        # Integración con Google Gemini AI
+│
+├── tests/                        # Pruebas y scripts de validación
+│   ├── __init__.py
+│   ├── test_basico.py           # Pruebas básicas del sistema
+│   ├── test_gemini.py           # Prueba de integración con Gemini
+│   ├── test_calculo_ia.py       # Prueba de cálculo con IA
+│   └── test_recomendaciones_largas.py  # Prueba de recomendaciones detalladas
+│
+├── docs/                         # Documentación
+│   ├── README_OLD.md            # Documentación original
+│   ├── INTEGRACION_GEMINI.md    # Guía de integración con IA
+│   ├── EJEMPLOS.md              # Ejemplos de uso
+│   ├── MEJORAS.md               # Registro de mejoras
+│   └── RESUMEN_FINAL.md         # Resumen del proyecto
+│
+├── data/                         # Datos y logs
+│   ├── proyectos.csv            # Base de datos de proyectos
+│   └── capa_datos.log           # Archivo de logs
+│
+├── app.py                        # Aplicación GUI con Tkinter
+├── cli.py                        # Interfaz de línea de comandos
+├── .gitignore                   # Archivos ignorados por Git
+├── README.md                    # Este archivo
+└── venv/                        # Entorno virtual (no incluido en Git)
 ```
 
 ## Instalación
 
-### Requisitos
+### Requisitos Previos
 
 - Python 3.7 o superior
-- Tkinter (incluido en la mayoría de distribuciones de Python)
+- pip (gestor de paquetes de Python)
 
-### Dependencias
+### Pasos de Instalación
 
-No se requieren dependencias externas adicionales. El proyecto utiliza solo bibliotecas estándar de Python:
-- `tkinter` - Interfaz gráfica
-- `csv` - Manejo de datos
-- `dataclasses` - Modelos de datos
-- `logging` - Sistema de registro
-
-### Instalación
-
+1. **Clonar el repositorio**
 ```bash
-# Clonar o descargar el proyecto
+git clone <url-del-repositorio>
 cd Ambiental
+```
+
+2. **Crear entorno virtual (recomendado)**
+```bash
+python -m venv venv
+```
+
+3. **Activar el entorno virtual**
+- Windows:
+  ```bash
+  venv\Scripts\activate
+  ```
+- Linux/Mac:
+  ```bash
+  source venv/bin/activate
+  ```
+
+4. **Instalar dependencias**
+```bash
+pip install -r requirements.txt
+```
+
+O manualmente:
+```bash
+pip install google-generativeai
+```
+
+5. **Configurar API Key de Gemini**
+- Editar `src/constants.py` y agregar tu API Key:
+```python
+GEMINI_API_KEY = "tu-api-key-aqui"
 ```
 
 ## Uso
@@ -74,18 +117,11 @@ python app.py
 ```
 
 La aplicación GUI ofrece:
-- **Panel lateral** con listado de proyectos
-- **Formularios** para crear y editar proyectos
-- **Visualización de simulaciones** con gráficos
-- **Pestañas** para separar formularios y resultados
-
-#### Funcionalidades GUI:
-- Crear nuevo proyecto
-- Editar proyecto existente
-- Eliminar proyecto
-- Actualizar listado
-- Simular impacto ambiental
-- Visualizar resultados con gráficos
+- Formulario intuitivo para crear proyectos
+- Tabla con lista de proyectos existentes
+- Botones para ver detalles, simular, editar y eliminar
+- Ventanas emergentes con resultados de simulación
+- Diseño moderno y profesional
 
 ### Interfaz de Línea de Comandos (CLI)
 
@@ -93,159 +129,161 @@ La aplicación GUI ofrece:
 python cli.py
 ```
 
-Menú disponible:
-```
-1) Crear proyecto
-2) Listar proyectos
-3) Ver proyecto
-4) Actualizar proyecto
-5) Eliminar proyecto
-6) Simular impacto
-0) Salir
-```
+Opciones del menú CLI:
+1. Crear proyecto
+2. Listar proyectos
+3. Ver detalles de proyecto
+4. Actualizar proyecto
+5. Eliminar proyecto
+6. Simular impacto ambiental
+0. Salir
 
-## Simulación de Impacto
-
-El simulador evalúa cuatro dimensiones ambientales:
-
-### Métricas Evaluadas
-
-| Métrica | Descripción | Rango |
-|---------|-------------|-------|
-| **Calidad del Aire** | Emisiones y material particulado | 0-100 |
-| **Calidad del Agua** | Contaminación hídrica y vertimientos | 0-100 |
-| **Biodiversidad** | Impacto en flora y fauna local | 0-100 |
-| **Uso del Suelo** | Degradación y erosión del terreno | 0-100 |
-
-*Nota: 100 es el valor óptimo (menor impacto), 0 es el peor (mayor impacto)*
-
-### Factores de Cálculo
-
-El algoritmo de simulación considera:
-
-- **Tipo de proyecto** - Factores base según construcción/minería/agricultura
-- **Área del proyecto** - Hectáreas afectadas (escala logarítmica)
-- **Duración** - Meses de ejecución
-- **Intensidad** - Nivel de impacto del 1 al 10
-
-### Recomendaciones Automáticas
-
-Si alguna métrica cae por debajo de 70, el sistema genera recomendaciones:
-
-- **Aire**: Control de polvo/PM y riego de vías
-- **Agua**: Sedimentadores y manejo de vertimientos (ISO 14001)
-- **Biodiversidad**: Plan de manejo de fauna/flora y reubicación
-- **Suelo**: Estabilización de taludes y revegetalización
-
-## Estructura de Datos
-
-### Proyecto (Project)
-
-```python
-{
-    "id": "P001",
-    "nombre": "Edificio Corporativo",
-    "tipo": "construccion",  # construccion|mineria|agricultura
-    "area_ha": 2.5,
-    "duracion_meses": 18,
-    "ubicacion": "Zona Industrial Norte",
-    "intensidad": 6  # 1-10
-}
-```
-
-### Impacto
-
-```python
-{
-    "proyecto_id": "P001",
-    "calidad_aire": 75.3,
-    "calidad_agua": 82.1,
-    "biodiversidad": 68.9,
-    "uso_suelo": 71.2,
-    "riesgo_total": 31.2,  # Porcentaje de riesgo (0-100)
-    "recomendaciones": {
-        "biodiversidad": "Plan de manejo de fauna/flora..."
-    }
-}
-```
-
-## Capturas de Pantalla
-
-### GUI Principal
-- Panel lateral oscuro con listado de proyectos
-- Formulario de creación con validaciones
-- Visualización de métricas con gráficos de barras
-- Recomendaciones de mitigación
-
-### CLI
-- Menú interactivo en consola
-- Operaciones CRUD simplificadas
-- Visualización de datos en formato texto
-
-## Sistema de Logging
-
-El proyecto incluye un sistema de logging completo que registra:
-
-- Operaciones exitosas
-- Advertencias (IDs duplicados, proyectos no encontrados)
-- Errores (validación de datos, simulaciones fallidas)
-- Debug (detalles de cálculos y operaciones)
-
-Los logs facilitan la trazabilidad y depuración del sistema.
-
-## Configuración
-
-### Archivo de Datos
-
-Los proyectos se almacenan en `proyectos.csv` con el siguiente formato:
-
-```csv
-id,nombre,tipo,area_ha,duracion_meses,ubicacion,intensidad
-P001,Edificio Corporativo,construccion,2.5,18,Zona Industrial,6
-```
-
-El archivo se crea automáticamente en el primer uso.
-
-## Pruebas
-
-El proyecto incluye un script de pruebas básicas:
+### Ejecutar Pruebas
 
 ```bash
-python test_basico.py
+# Prueba básica del sistema
+python -m tests.test_basico
+
+# Prueba de integración con Gemini
+python -m tests.test_gemini
+
+# Prueba de cálculo con IA
+python -m tests.test_calculo_ia
+
+# Prueba de recomendaciones detalladas
+python -m tests.test_recomendaciones_largas
 ```
 
-Las pruebas verifican:
-- Importación correcta de módulos
-- Validaciones de datos
-- Operaciones CRUD
-- Motor de simulación
-- Rangos de valores
+## Funcionamiento del Sistema IA
 
-## Contribuciones
+### Cálculo de Métricas con IA
 
-Este es un proyecto Work In Progress (WIP). Áreas de mejora futuras:
+El sistema utiliza **Google Gemini** para:
 
-- [ ] Validación avanzada de datos de entrada
-- [ ] Exportación de reportes en PDF
-- [ ] Gráficos más avanzados (líneas de tendencia, comparativas)
-- [ ] Base de datos SQLite en lugar de CSV
-- [ ] API REST para integración con otros sistemas
-- [ ] Tests unitarios
-- [ ] Soporte para múltiples idiomas
-- [ ] Dashboard con estadísticas generales
+1. **Analizar el contexto del proyecto**: tipo, área, duración, intensidad, ubicación
+2. **Calcular métricas ambientales**:
+   - Calidad del Aire (0-100)
+   - Calidad del Agua (0-100)
+   - Biodiversidad (0-100)
+   - Uso del Suelo (0-100)
+   - Riesgo Total (0-100%)
+
+3. **Generar recomendaciones detalladas** con:
+   - Medidas técnicas cuantificables
+   - Tecnologías y equipos específicos
+   - Referencias normativas (ISO, leyes locales)
+   - Cronogramas de implementación
+   - Indicadores de éxito medibles
+
+### Sistema de Fallback Dual
+
+**Nivel 1**: Gemini AI (modo ideal)
+- Cálculos contextualizados
+- Recomendaciones técnicas exhaustivas
+
+**Nivel 2**: Fórmulas matemáticas (fallback de cálculo)
+- Algoritmos basados en factores tipo de proyecto
+- Ajustes por escala, área y duración
+
+**Nivel 3**: Recomendaciones básicas (fallback total)
+- Recomendaciones predefinidas detalladas
+- Aplican cuando API no está disponible
+
+## Métricas Ambientales
+
+### Calidad del Aire
+- Material particulado (PM10/PM2.5)
+- Emisiones de gases
+- Polvo en suspensión
+
+### Calidad del Agua
+- DBO/DQO
+- Sólidos suspendidos
+- pH y contaminantes
+
+### Biodiversidad
+- Impacto en flora nativa
+- Afectación de fauna
+- Corredores biológicos
+
+### Uso del Suelo
+- Erosión y estabilidad
+- Compactación
+- Pérdida de suelo orgánico
+
+## Niveles de Riesgo
+
+- **0-30%**: 🟢 Riesgo Bajo
+- **30-60%**: 🟡 Riesgo Moderado
+- **60-100%**: 🔴 Riesgo Alto
+
+## Validaciones
+
+El sistema valida automáticamente:
+- ID único del proyecto (no vacío)
+- Nombre del proyecto (no vacío)
+- Tipo válido (construccion, mineria, agricultura)
+- Área: ≥ 0.1 hectáreas
+- Duración: ≥ 1 mes
+- Intensidad: 1-10 (escala numérica)
+
+## Configuración Avanzada
+
+### constants.py
+
+Archivo de configuración central:
+- `GEMINI_API_KEY`: API key de Google Gemini
+- `TIPOS_PROYECTO`: Tipos de proyectos permitidos
+- `INTENSIDAD_MIN/MAX`: Rango de intensidad
+- `AREA_MIN`: Área mínima en hectáreas
+- `DURACION_MIN`: Duración mínima en meses
+- `UMBRAL_RECOMENDACION`: Umbral para generar recomendaciones
+
+### Archivos de Log
+
+Los logs se guardan en `data/capa_datos.log` con:
+- Timestamp de cada operación
+- Nivel de log (DEBUG, INFO, WARNING, ERROR)
+- Nombre de archivo y línea de código
+- Mensaje descriptivo
+
+## Tecnologías Utilizadas
+
+- **Python 3.7+**: Lenguaje principal
+- **Tkinter**: Interfaz gráfica
+- **Google Gemini AI**: Inteligencia artificial
+- **google-generativeai**: SDK oficial de Google
+- **CSV**: Persistencia de datos
+- **Logging**: Trazabilidad del sistema
+- **Dataclasses**: Modelos de datos
+
+## Contribución
+
+Este proyecto está en desarrollo activo. Para contribuir:
+
+1. Fork del repositorio
+2. Crear rama feature (`git checkout -b feature/NuevaCaracteristica`)
+3. Commit de cambios (`git commit -m 'Agrega nueva característica'`)
+4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
+5. Crear Pull Request
+
+## Documentación Adicional
+
+- **[INTEGRACION_GEMINI.md](docs/INTEGRACION_GEMINI.md)**: Guía completa de integración con IA
+- **[EJEMPLOS.md](docs/EJEMPLOS.md)**: Casos de uso y ejemplos prácticos
+- **[MEJORAS.md](docs/MEJORAS.md)**: Historial de mejoras implementadas
+- **[RESUMEN_FINAL.md](docs/RESUMEN_FINAL.md)**: Resumen técnico del proyecto
 
 ## Licencia
 
-Este proyecto es de código abierto y está disponible para uso educativo y de investigación.
+Proyecto educativo - Libre uso con atribución
 
-## Autor
+## Contacto
 
-Desarrollado como herramienta de análisis de impacto ambiental para proyectos de construcción, minería y agricultura.
+Para preguntas, sugerencias o reportes de errores, crear un issue en el repositorio.
 
 ---
 
-**Estado del Proyecto**: Work In Progress (WIP)
-
-**Versión**: 1.0.0
-
-**Última Actualización**: Noviembre 2025
+**Versión**: 2.0.0 con IA  
+**Última actualización**: Noviembre 2025  
+**Estado**: Producción ✓

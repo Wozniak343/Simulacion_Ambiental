@@ -1,0 +1,7 @@
+# Simulador de Impacto Ambiental - Dependencias
+
+# Google Gemini AI
+google-generativeai>=0.8.0
+
+# Nota: Tkinter viene incluido con Python
+# No requiere instalación adicional

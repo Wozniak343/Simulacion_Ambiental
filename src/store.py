@@ -1,11 +1,11 @@
 import csv
 import os
 from typing import List, Optional, Dict
-from models import Project
-import logger_base as _log
+from src.models import Project
+import src.logger_base as _log
 log = _log.log
 
-CSV_PATH = os.path.join(os.path.dirname(__file__), "proyectos.csv")
+CSV_PATH = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "proyectos.csv")
 CSV_FIELDS = ["id","nombre","tipo","area_ha","duracion_meses","ubicacion","intensidad"]
 
 def init_store():

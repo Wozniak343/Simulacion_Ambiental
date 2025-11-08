@@ -1,11 +1,11 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from crud_service import (
+from src.crud_service import (
     init, crear_proyecto, listar_proyectos, obtener_proyecto,
     actualizar_proyecto, eliminar_proyecto, simular_proyecto
 )
-import logger_base as _log
-from constants import TIPOS_PROYECTO
+import src.logger_base as _log
+from src.constants import TIPOS_PROYECTO
 
 log = _log.log
 

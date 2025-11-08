@@ -5,6 +5,9 @@ Constantes globales del proyecto Simulador Ambiental
 # Tipos de proyectos válidos
 TIPOS_PROYECTO = ["construccion", "agricultura", "mineria"]
 
+# API Keys
+GEMINI_API_KEY = "AIzaSyCBIesdP9H99p_YsuO7HO9ZaAyGVYeauEA"
+
 # Validaciones de datos
 INTENSIDAD_MIN = 1
 INTENSIDAD_MAX = 10

@@ -20,9 +20,12 @@ ENV/
 *.swo
 *~
 
-# Logs
-*.log
-capa_datos.log
+# Data y Logs (mantener estructura, ignorar contenido)
+data/*.log
+data/*.csv
+
+# Mantener carpetas vacías
+!data/.gitkeep
 
 # OS
 .DS_Store
