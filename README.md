@@ -124,22 +124,6 @@ Opciones del menú CLI:
 6. Simular impacto ambiental
 0. Salir
 
-### Ejecutar Pruebas
-
-```bash
-# Prueba básica del sistema
-python -m tests.test_basico
-
-# Prueba de integración con Gemini
-python -m tests.test_gemini
-
-# Prueba de cálculo con IA
-python -m tests.test_calculo_ia
-
-# Prueba de recomendaciones detalladas
-python -m tests.test_recomendaciones_largas
-```
-
 ## Funcionamiento del Sistema IA
 
 ### Cálculo de Métricas con IA
@@ -199,9 +183,9 @@ El sistema utiliza **Google Gemini** para:
 
 ## Niveles de Riesgo
 
-- **0-30%**: 🟢 Riesgo Bajo
-- **30-60%**: 🟡 Riesgo Moderado
-- **60-100%**: 🔴 Riesgo Alto
+- **0-30%**: Riesgo Bajo
+- **30-60%**: Riesgo Moderado
+- **60-100%**: Riesgo Alto
 
 ## Validaciones
 
