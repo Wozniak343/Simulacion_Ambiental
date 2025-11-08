@@ -37,20 +37,6 @@ Ambiental/
 │   ├── simulation.py            # Motor de simulación ambiental
 │   └── gemini_service.py        # Integración con Google Gemini AI
 │
-├── tests/                        # Pruebas y scripts de validación
-│   ├── __init__.py
-│   ├── test_basico.py           # Pruebas básicas del sistema
-│   ├── test_gemini.py           # Prueba de integración con Gemini
-│   ├── test_calculo_ia.py       # Prueba de cálculo con IA
-│   └── test_recomendaciones_largas.py  # Prueba de recomendaciones detalladas
-│
-├── docs/                         # Documentación
-│   ├── README_OLD.md            # Documentación original
-│   ├── INTEGRACION_GEMINI.md    # Guía de integración con IA
-│   ├── EJEMPLOS.md              # Ejemplos de uso
-│   ├── MEJORAS.md               # Registro de mejoras
-│   └── RESUMEN_FINAL.md         # Resumen del proyecto
-│
 ├── data/                         # Datos y logs
 │   ├── proyectos.csv            # Base de datos de proyectos
 │   └── capa_datos.log           # Archivo de logs
