@@ -67,7 +67,7 @@ Ambiental/
 ### Requisitos Previos
 
 - Python 3.7 o superior
-- pip (gestor de paquetes de Python)
+- pip (gestor de paquetes de Python) Yo personalmente utilice un entorno Conda, ya que me parece más comodo
 
 ### Pasos de Instalación
 
