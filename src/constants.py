@@ -7,7 +7,7 @@ Es más fácil cambiar valores si están todos en un solo lugar.
 TIPOS_PROYECTO = ["construccion", "agricultura", "mineria"]
 
 # Mi API key de Google Gemini para usar la IA
-GEMINI_API_KEY = "AIzaSyCBIesdP9H99p_YsuO7HO9ZaAyGVYeauEA"
+GEMINI_API_KEY = ""
 
 # Valores mínimos y máximos para validar datos
 INTENSIDAD_MIN = 1          # Mínima intensidad de impacto
