@@ -1,7 +1,6 @@
 """
 Modelos de datos para el Simulador de Impacto Ambiental.
-
-Este módulo define las estructuras de datos principales utilizadas en el sistema.
+Aquí definimos las clases principales que usamos en todo el proyecto.
 """
 from dataclasses import dataclass, field
 from typing import Dict
@@ -9,43 +8,36 @@ from typing import Dict
 @dataclass
 class Project:
     """
-    Representa un proyecto a evaluar ambientalmente.
-    
-    Attributes:
-        id: Identificador único del proyecto
-        nombre: Nombre descriptivo del proyecto
-        tipo: Tipo de proyecto (construccion, mineria, agricultura)
-        area_ha: Área del proyecto en hectáreas
-        duracion_meses: Duración estimada del proyecto en meses
-        ubicacion: Ubicación geográfica del proyecto
-        intensidad: Nivel de intensidad del impacto (1-10)
+    Clase que representa un proyecto ambiental.
+    Uso dataclass porque hace el código más limpio y fácil de leer.
     """
-    id: str
-    nombre: str
-    tipo: str
-    area_ha: float
-    duracion_meses: int
-    ubicacion: str = ""
-    intensidad: int = 5
+    # Campos obligatorios del proyecto
+    id: str                    # Identificador único
+    nombre: str               # Nombre del proyecto
+    tipo: str                 # Tipo: construccion, mineria o agricultura
+    area_ha: float            # Área en hectáreas
+    duracion_meses: int       # Duración en meses
+    
+    # Campos opcionales con valores por defecto
+    ubicacion: str = ""       # Dónde está el proyecto
+    intensidad: int = 5       # Escala del 1 al 10
     
 @dataclass
 class Impacto:
     """
-    Representa el resultado de una simulación de impacto ambiental.
-    
-    Attributes:
-        proyecto_id: ID del proyecto evaluado
-        calidad_aire: Puntuación de calidad del aire (0-100, mayor es mejor)
-        calidad_agua: Puntuación de calidad del agua (0-100, mayor es mejor)
-        biodiversidad: Puntuación de impacto en biodiversidad (0-100, mayor es mejor)
-        uso_suelo: Puntuación de uso del suelo (0-100, mayor es mejor)
-        riesgo_total: Porcentaje de riesgo total (0-100, mayor es peor)
-        recomendaciones: Diccionario con recomendaciones de mitigación por categoría
+    Clase que guarda los resultados de la simulación.
+    Almacena todas las métricas calculadas y las recomendaciones.
     """
-    proyecto_id: str
-    calidad_aire: float
-    calidad_agua: float
-    biodiversidad: float
-    uso_suelo: float
-    riesgo_total: float
+    proyecto_id: str          # A qué proyecto pertenece
+    
+    # Métricas ambientales (0-100, más alto = mejor)
+    calidad_aire: float       # Qué tan limpio queda el aire
+    calidad_agua: float       # Calidad del agua después del proyecto
+    biodiversidad: float      # Impacto en plantas y animales
+    uso_suelo: float          # Cómo afecta al suelo
+    
+    # Riesgo total (0-100, más alto = peor)
+    riesgo_total: float       # Porcentaje de riesgo general
+    
+    # Diccionario con las recomendaciones por categoría
     recomendaciones: Dict[str, str] = field(default_factory=dict)

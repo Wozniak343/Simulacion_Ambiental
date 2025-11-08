@@ -1,3 +1,8 @@
+"""
+Servicio CRUD para manejar proyectos.
+Aquí están todas las operaciones: crear, leer, actualizar, eliminar y simular.
+También valida los datos antes de guardarlos.
+"""
 from typing import Optional, Dict, List
 from src.models import Project, Impacto
 from src import store
@@ -12,11 +17,15 @@ from src.constants import (
 log = _log.log
 
 def init():
+    """Inicializa el almacenamiento de datos."""
     store.init_store()
 
 def _validar_proyecto(data: Dict) -> Optional[str]:
-    """Valida los datos de un proyecto. Retorna mensaje de error o None si es válido."""
-    # Validar ID y nombre
+    """
+    Valida que los datos del proyecto sean correctos.
+    Retorna un mensaje de error si algo está mal, o None si todo está bien.
+    """
+    # Valido que el ID y el nombre no estén vacíos
     if not data.get("id", "").strip():
         return MSG_ERROR_ID_VACIO
     if not data.get("nombre", "").strip():
