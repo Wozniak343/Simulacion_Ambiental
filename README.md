@@ -237,20 +237,9 @@ Este proyecto está en desarrollo activo. Para contribuir:
 4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
 5. Crear Pull Request
 
-## Documentación Adicional
-
-- **[INTEGRACION_GEMINI.md](docs/INTEGRACION_GEMINI.md)**: Guía completa de integración con IA
-- **[EJEMPLOS.md](docs/EJEMPLOS.md)**: Casos de uso y ejemplos prácticos
-- **[MEJORAS.md](docs/MEJORAS.md)**: Historial de mejoras implementadas
-- **[RESUMEN_FINAL.md](docs/RESUMEN_FINAL.md)**: Resumen técnico del proyecto
-
 ## Licencia
 
 Proyecto educativo - Libre uso con atribución
-
-## Contacto
-
-Para preguntas, sugerencias o reportes de errores, crear un issue en el repositorio.
 
 ---
 
